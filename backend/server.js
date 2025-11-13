@@ -37,12 +37,12 @@ app.post('/api/chat', async (req, res) => {
     // 2. Initialize the GoogleGenerativeAI client with your API key
     const ai =new GoogleGenerativeAI(apiKey)
     // 3. Get a model instance (recommended: 'gemini-2.5-flash')
-    const model = ai.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = ai.getGenerativeModel({ model: "gemini-2.0-flash" });
     // 4. Construct a prompt with the user's message
     const userMessage = req.body.message;
     const prompt = 'you are a helpful study buddy. provide a concise and accurate answer to the following question: ${userMessage}';
     // 5. Call generateContent() with the prompt
-    const result = awaitmodel.generateContent(prompt);
+    const result = await model.generateContent(prompt);
     // 6. Extract the response text from the result
     const responseText = result.response.text;
     // 7. Handle any errors that may occur

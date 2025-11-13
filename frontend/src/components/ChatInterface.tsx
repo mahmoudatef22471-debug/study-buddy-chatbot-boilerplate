@@ -46,7 +46,7 @@ const ChatInterface = () => {
   // ✅ 4. Create bot message using backend reply
   const botMessage: Message = {
     id: (Date.now() + 1).toString(),
-    text: data.reply || '⚠️ No response received from server.',
+    text: data.response || 'hi',
     sender: 'bot',
     timestamp: new Date(),
   };
